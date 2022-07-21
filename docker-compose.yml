@@ -7,9 +7,11 @@ services:
     ports:
       - "5432:5432"
     environment:
-       - POSTGRES_DATABASE=database
+       - POSTGRES_DATABASE=metrics
        - POSTGRES_USER=user
        - POSTGRES_PASSWORD=secret
+    volumes:
+      - ./sqlite:/var/lib/postgresql
   app :
     build: ./src/
     depends_on:
